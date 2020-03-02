@@ -2,22 +2,19 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     googleId: String,
+    name: String,
     email: {
         type: String,
         required: true
     },
-    madeDecks: [],
-    favDecks: []
+    madeDecks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'MadeDeck'
+    }],
+    favDecks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'FavDeck'
+    }]
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
-
-// const cardSchema = new mongoose.Schema({
-//     owner: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: 'Owner'
-//     },
-//     decks: [],
-//     front: String,
-//     back: String
-// }, { timestamps: true })

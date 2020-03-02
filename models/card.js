@@ -7,7 +7,10 @@ const cardSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Owner'
     },
-    decks: [],
+    decks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Deck'
+    }],
     front: String,
     back: String
 }, { timestamps: true })
