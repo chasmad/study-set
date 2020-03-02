@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySet Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h1>Welcome to StudySet!</h1>
+    <a href="" class="brand-logo left">StudySet Decks</a>
+    <!-- new html below -->
+    <ul class="right">
+        <li>
+            <% if (user) { %>
+            <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+            <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+            <% } %>
+        </li>
+    </ul>
+</body>
+
+</html>
