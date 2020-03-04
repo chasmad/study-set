@@ -37,6 +37,11 @@ app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/decks', decksRouter);

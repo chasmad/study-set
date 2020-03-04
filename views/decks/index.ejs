@@ -10,24 +10,24 @@
 
 <body>
     <div id="main">
-    <div class="loginout">
-        <% if (user) { %>
-        <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
-        <% } else { %>
-        <a href="/auth/google">Login with Google</a>
-        <% } %>
-    </div>
-    <h1 class="deck-title"><%= user.name %>'s StudySets</h1>
-    <div class="deck-title">
-        <a href="/decks/new"><button>New StudySet</button></a><br><br>
-    </div>
-    <tbody class="deck-body">
-        <% decks.forEach(d => { %>
-        <a href="/decks/<%= d._id %>"><button class="decks">
-                <td><%= d.name %></td>
-            </button></a>
-        <% }); %>
-    </tbody>
+        <div class="loginout">
+            <% if (user) { %>
+            <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
+            <% } else { %>
+            <a href="/auth/google">Login with Google</a>
+            <% } %>
+        </div>
+        <h1 class="deck-title"><%= user.name %>'s StudySets</h1>
+        <div class="deck-title">
+            <a href="/decks/new"><button>New StudySet</button></a><br><br>
+        </div>
+        <div class="deck-body">
+            <% decks.forEach(d => { %>
+            <a href="/decks/<%= d._id %>"><button class="decks">
+                    <div><%= d.name %></div>
+                </button></a>
+            <% }); %>
+        </div>
     </div>
 </body>
 

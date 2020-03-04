@@ -21,7 +21,6 @@ function show(req, res) {
                 {
                     deck,
                     cards: deck.cards,
-                    user: req.user,
                 });
         })
 };
@@ -30,7 +29,6 @@ function index(req, res) {
     Deck.find({ owner: req.user._id }, (err, decks) => {
         console.log('At Index');
         res.render('decks/index', {
-            user: req.user,
             decks
         });
     })

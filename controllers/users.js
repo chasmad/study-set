@@ -6,7 +6,5 @@ module.exports = {
 
 // GET methods -----------
 function index(req, res, next) {
-    res.render('users/index', {
-        user: req.user,
-    });
+    res.render('users/index');
 };
