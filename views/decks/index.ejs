@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.name %>'s StudySets</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div>
+        <% if (user) { %>
+        <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
+        <% } else { %>
+        <a href="/auth/google">Login with Google</a>
+        <% } %>
+    </div>
+    <h1><%= user.name %>'s StudySets</h1>
+    <a href="/decks/new"><button>New StudySet</button></a><br><br>
+    <tbody>
+        <% decks.forEach(d => { %>
+            <a href="/decks/<%= d._id %>"><button><td><%= d.name %></td></button></a>
+        <% }); %>
+    </tbody>
+</body>
+
+</html>

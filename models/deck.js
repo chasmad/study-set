@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-module.exports = mongoose.model('Deck', deckSchema);
-
 const deckSchema = new mongoose.Schema({
+    name: String,
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Owner'
@@ -12,3 +11,5 @@ const deckSchema = new mongoose.Schema({
         ref: 'Card'
     }]
 }, { timestamps: true });
+
+module.exports = mongoose.model('Deck', deckSchema);

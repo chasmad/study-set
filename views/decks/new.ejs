@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New StudySet Deck</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div>
+        <% if (user) { %>
+        <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
+        <% } else { %>
+        <a href="/auth/google">Login with Google</a>
+        <% } %>
+    </div>
+    <h1>Create New StudySet Deck</h1>
+    <form action="/decks/" method="POST">
+        <input type="text" name="name" placeholder="Enter name for new StudySet Deck!">
+        <input type="submit" value="Create New Deck!">
+    </form>
+</body>
+
+</html>

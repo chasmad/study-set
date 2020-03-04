@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= deck.name %> StudySet</title>
+</head>
+
+<body>
+    <a href="/decks"><button>My StudySets</button></a>
+    <h1> <%= deck.name %> StudySet
+    <form method="POST" action="/decks/<%= deck._id %>?_method=PUT">
+        <input type="text" name="name" placeholder="new StudySet title">
+        <input type="submit" value="change title">
+    </form> <br>
+    </h1>
+    <div>
+        <% if (user) { %>
+        <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
+        <% } else { %>
+        <a href="/auth/google">Login with Google</a>
+        <% } %>
+    </div><br>
+    <form action="/decks/<%= deck._id %>/cards" method="POST">
+        <input type="text" name="front" placeholder="Front">
+        <input type="text" name="back" placeholder="Back">
+        <input type="submit" value="Add FlashCard"></input></form><br><br>
+    <tbody>
+        <% cards.forEach(c => { %>
+            <td>Card <%= c.front %></td>
+            <td><%= c.back %></td>
+            <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
+                <input type="text" name="front" placeholder="<%= c.front %>" >
+                <input type="text" name="back" placeholder="<%= c.back %>" >
+                <input type="submit" value="change card">
+            </form> <br><br>
+        <% }); %>
+    </tbody>
+</body>
+
+</html>
