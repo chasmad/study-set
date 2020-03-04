@@ -7,7 +7,8 @@ module.exports = {
     create,
     show,
     newCard,
-    update
+    update,
+    delete: deleteDeck
 };
 
 // GET methods -----------
@@ -66,7 +67,7 @@ function create(req, res) {
     })
 };
 
-// PUT methods
+// PUT methods ----------
 
 function update(req, res) {
     console.log("Updating Deck!");
@@ -75,4 +76,13 @@ function update(req, res) {
         if (err) return res.redirect(`/decks/${deck._id}`);
         res.redirect(`/decks/${req.params.id}`)
     });
+}
+
+// DELETE methods ----------
+function deleteDeck(req, res) {
+    Deck.findByIdAndDelete(req.params.id, (err, result) => {
+        console.log(result);
+        if (err) return res.redirect('/decks');
+        res.redirect('/decks');
+    })
 }

@@ -1,22 +1,11 @@
 const Card = require('../models/card');
-const Deck = require('../models/deck');
 
 module.exports = {
-    update
+    update,
+    delete: deleteCard
 };
 
-// // GET methods -----------
-// function index(req, res) {
-//     Deck.findById(req.params.id)
-//     Card.find({ deck: req.params.id }, (err, cards) => {
-//         console.log(cards);
-//         console.log(req.user);
-//         res.render('cards/index', {
-//             user: req.user,
-//             cards
-//         });
-//     })
-// };
+// GET methods -----------
 
 // POST methods ----------
 
@@ -27,4 +16,12 @@ function update(req, res) {
         if (err) return res.redirect(`/decks/${deck._id}`);
         res.redirect(`/decks/${card.deck._id}`)
     });
+}
+
+// DELETE methods ----------
+function deleteCard(req, res) {
+    Card.findByIdAndDelete(req.params.id, (err, result) => {
+        if (err) return res.redirect(`/decks/${deck._id}`);
+        res.redirect(`/decks/${result.deck._id}`)
+    })
 }

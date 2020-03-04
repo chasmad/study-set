@@ -10,5 +10,7 @@ router.post('/', decksCtrl.create);
 router.post('/:id/cards', decksCtrl.newCard);
 // PUT requests
 router.put('/:id', decksCtrl.update);
+// DELETE requests
+router.delete('/:id', decksCtrl.delete);
 
 module.exports = router;
