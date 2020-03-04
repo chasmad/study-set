@@ -1,0 +1,50 @@
+body * {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#main {
+    position: relative;
+}
+
+#main:after{
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("https://i.imgur.com/HdMetd1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    opacity : 0.2;
+    z-index: -1;
+}
+
+.loginout {
+    text-align: right;
+}
+
+.deck-title {
+    text-align: center;
+}
+
+.deck-body {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: space-around;
+}
+
+.decks {
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding: 70px;
+    margin: 70px;
+    border: 1px solid;
+    box-shadow: 5px 7px #888888;
+    border-radius: 5%;
+}

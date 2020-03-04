@@ -5,24 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= user.name %>'s StudySets</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/deckIndex.css">
 </head>
 
 <body>
-    <div>
+    <div id="main">
+    <div class="loginout">
         <% if (user) { %>
         <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
         <% } else { %>
         <a href="/auth/google">Login with Google</a>
         <% } %>
     </div>
-    <h1><%= user.name %>'s StudySets</h1>
-    <a href="/decks/new"><button>New StudySet</button></a><br><br>
-    <tbody>
+    <h1 class="deck-title"><%= user.name %>'s StudySets</h1>
+    <div class="deck-title">
+        <a href="/decks/new"><button>New StudySet</button></a><br><br>
+    </div>
+    <tbody class="deck-body">
         <% decks.forEach(d => { %>
-            <a href="/decks/<%= d._id %>"><button><td><%= d.name %></td></button></a>
+        <a href="/decks/<%= d._id %>"><button class="decks">
+                <td><%= d.name %></td>
+            </button></a>
         <% }); %>
     </tbody>
+    </div>
 </body>
 
 </html>
