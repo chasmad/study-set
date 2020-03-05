@@ -3,7 +3,6 @@ const Card = require('../models/card');
 
 module.exports = {
     index,
-    new: newDeck,
     create,
     show,
     newCard,
@@ -34,12 +33,18 @@ function index(req, res) {
     })
 };
 
-function newDeck(req, res) {
-    res.render('decks/new', { user: req.user }
-    );
-}
-
 // POST methods ----------
+
+function create(req, res) {
+    req.body.owner = req.user._id;
+    const deck = new Deck(req.body);
+    deck.name = 'New';
+    console.log(deck);
+    deck.save(err => {
+        if (err) return res.redirect('/decks/new');
+        res.redirect(`/decks/${deck._id}`);
+    })
+};
 
 function newCard(req, res) {
     req.body.deck = req.params.id;
@@ -55,15 +60,6 @@ function newCard(req, res) {
         })
     })
 }
-
-function create(req, res) {
-    req.body.owner = req.user._id;
-    const deck = new Deck(req.body);
-    deck.save(err => {
-        if (err) return res.redirect('/decks/new');
-        res.redirect(`/decks/${deck._id}`);
-    })
-};
 
 // PUT methods ----------
 
