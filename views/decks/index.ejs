@@ -12,16 +12,20 @@
 <body>
     <div id="main">
         <div class="loginout">
-            <div>
-                <% if (user) { %>
-                <a href="/logout"><button>Welcome, <%= user.name %>! Log Out?</button></a>
-                <% } else { %>
-                <a href="/auth/google"><button>Login with Google</button></a>
-                <% } %>
-            </div>
-            <div class="new-deck-pos">
-                <a href="/decks/new"><button class="new-deck-button">New
+            <div class="newset-button" >
+                <a href="/decks/new"><button>New
                         StudySet</button></a><br><br>
+            </div>
+            <div class="allsets-button">
+                <a href="/decks/new"><button>All
+                        StudySets</button></a><br><br>
+            </div>
+            <div class="welcome-button">
+                <% if (user) { %>
+                <a href="/logout"><button >Welcome, <%= user.name %>! Log Out?</button></a>
+                <% } else { %>
+                <a href="/auth/google"><button >Login with Google</button></a>
+                <% } %>
             </div>
         </div>
         <div class="set">

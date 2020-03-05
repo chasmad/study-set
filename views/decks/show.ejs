@@ -37,17 +37,18 @@
                 <input class="button" type="submit" value="Add FlashCard"></input>
             </div>
         </form><br><br>
-        <div>
+        <div class="card-body">
             <% cards.forEach(c => { %>
-            <div><%= c.front %></div>
-            <div><%= c.back %></div>
-            <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
-                <input type="text" name="front" placeholder="<%= c.front %>">
-                <input type="text" name="back" placeholder="<%= c.back %>">
-                <input type="submit" value="change card">
-            </form>
-            <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
-                <input type="submit" value="delete this card"></form><br><br>
+            <div class="card"><%= c.front %> |||
+                <%= c.back %>
+                <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
+                    <input type="text" name="front" placeholder="<%= c.front %>">
+                    <input type="text" name="back" placeholder="<%= c.back %>">
+                    <input type="submit" value="change card">
+                </form>
+                <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
+                    <input type="submit" value="delete this card"></form>
+            </div>
             <% }); %>
         </div>
         <div class="empty"></div>
