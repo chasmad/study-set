@@ -1,0 +1,94 @@
+body * {
+    font-family: 'Indie Flower', cursive;
+}
+
+body {
+    margin: 0;
+}
+
+#main {
+    position: relative;
+}
+
+#main:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("https://i.imgur.com/msIPyu3.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deck {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.deck-title {
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    text-align: center;
+    width: auto;
+    height: 45px;
+    font-size: 50px;
+}
+
+.new-title {
+    height: 50px;
+    margin-bottom: 60px;
+}
+
+.button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5%;
+    border: 1px solid;
+    box-shadow: 1px 2px #888888;
+}
+
+.button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5%;
+    border: 1px solid;
+    box-shadow: 1px 2px #888888;
+}
+
+.delete-container {
+    text-align: right;
+}
+
+.new-card {
+    text-align: center;
+}
+
+.new-flashcard {
+    text-align: center;
+    margin-top: 9px;
+}
+
+.card-input {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.empty {
+    height: 30vh;
+}

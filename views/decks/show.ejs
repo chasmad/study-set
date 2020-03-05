@@ -5,42 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= deck.name %> StudySet</title>
+    <link rel="stylesheet" href="/stylesheets/deckShow.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Raleway:700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <a href="/decks"><button>My StudySets</button></a>
-    <h1> <%= deck.name %> StudySet
-        <form method="POST" action="/decks/<%= deck._id %>?_method=PUT">
-            <input type="text" name="name" placeholder="new StudySet title">
-            <input type="submit" value="change title">
-        </form>
-        <form method="POST" action="/decks/<%= deck._id %>?_method=DELETE">
-            <input type="submit" value="delete this StudySet"></form><br>
-    </h1>
-    <div>
-        <% if (user) { %>
-        <a href="/logout">Welcome, <%= user.name %>! Log Out?</a>
-        <% } else { %>
-        <a href="/auth/google">Login with Google</a>
-        <% } %>
-    </div><br>
-    <form action="/decks/<%= deck._id %>/cards" method="POST">
-        <input type="text" name="front" placeholder="Front">
-        <input type="text" name="back" placeholder="Back">
-        <input type="submit" value="Add FlashCard"></input></form><br><br>
-    <tbody>
-        <% cards.forEach(c => { %>
-        <td>Card <%= c.front %></td>
-        <td><%= c.back %></td>
-        <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
-            <input type="text" name="front" placeholder="<%= c.front %>">
-            <input type="text" name="back" placeholder="<%= c.back %>">
-            <input type="submit" value="change card">
-        </form>
-        <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
-            <input type="submit" value="delete this card"></form><br><br>
-        <% }); %>
-    </tbody>
+    <div id="main">
+        <div class="buttons">
+            <a href="/decks"><button class="button">Back to my StudySets</button></a>
+            <div class="delete-container">
+                <form class="delete-form" method="POST" action="/decks/<%= deck._id %>?_method=DELETE">
+                    <input class="button" type="submit" value="delete this StudySet"></form>
+            </div>
+        </div>
+        <div class="deck">
+            <h1 class="deck-title"><%= deck.name %> StudySet
+            </h1>
+            <form class="new-title" method="POST" action="/decks/<%= deck._id %>?_method=PUT">
+                <input type="text" name="name" placeholder="new StudySet title">
+                <input class="button" type="submit" value="change title">
+            </form>
+        </div>
+        <form action="/decks/<%= deck._id %>/cards" method="POST">
+            <div class="new-card">
+                <textarea class="card-input" type="text" name="front" placeholder="front of card"
+                    style="width:300px; height:150px"></textarea>
+                <textarea class="card-input" type="text" name="back" placeholder="back of card"
+                    style="width:300px; height:150px"></textarea>
+            </div>
+            <div class="new-flashcard">
+                <input class="button" type="submit" value="Add FlashCard"></input>
+            </div>
+        </form><br><br>
+        <div>
+            <% cards.forEach(c => { %>
+            <div><%= c.front %></div>
+            <div><%= c.back %></div>
+            <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
+                <input type="text" name="front" placeholder="<%= c.front %>">
+                <input type="text" name="back" placeholder="<%= c.back %>">
+                <input type="submit" value="change card">
+            </form>
+            <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
+                <input type="submit" value="delete this card"></form><br><br>
+            <% }); %>
+        </div>
+        <div class="empty"></div>
+    </div>
 </body>
 
 </html>

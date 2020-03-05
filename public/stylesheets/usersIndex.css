@@ -1,0 +1,33 @@
+body * {
+    font-family: 'Indie Flower', cursive;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-image: url("https://i.imgur.com/HdMetd1.jpg");
+    background-size: cover;
+}
+
+.welcome button {
+    background-color: whitesmoke;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 80px;
+    width: 500px;
+    height: 275px;
+    margin: 30px;
+    border: 1px solid;
+    box-shadow: 3px 5px #888888;
+    border-radius: 5%;
+    word-wrap: normal;
+    margin-top: 25%;
+}
+
+span {
+    font-size: 70px;
+}
