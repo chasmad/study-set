@@ -122,3 +122,7 @@ body {
 .decks div {
     font-family: 'Indie Flower', cursive;
 }
+
+.empty {
+    height: 69vh;
+}
