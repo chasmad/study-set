@@ -42,35 +42,47 @@
         </form>
         <% } %>
         <div class="card-body">
-            <% cards.forEach(c => { %>
-            <div class="card"><%= c.front %><br>
-                <span><%= c.back %></span>
-                    <% if (String(user._id) === String(c.owner._id)) { %>
-                    <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
-                        <input class="delete-cards" type="submit" value=" X " ></form>
+            <% cards.forEach((c, i) => { %>
+            <div  class="card display">
+                <span class="front"><%= c.front %></span><br>
+                <span class="back hidden"><%= c.back %></span>
+                <% if (String(user._id) === String(c.owner._id)) { %>
+                <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
+                    <input class="delete-cards" type="submit" value=" X "></form>
                 <% } %>
             </div>
             <% }); %>
         </div>
         <div class="empty"></div>
     </div>
+
+
+    <script>
+        // event listeners go here
+        let cardList = document.querySelectorAll('.card');
+
+        cardList.forEach((e) => {
+            e.addEventListener('click', flip)
+        });
+
+        function flip(evt) {
+            if (!evt.target.classList.contains("card")) {
+                return;
+            }
+
+            console.log(evt.target.childNodes[1])
+
+            if (evt.target.childNodes[1].classList.contains('hidden')) {
+                evt.target.childNodes[1].classList.remove('hidden')
+                evt.target.childNodes[4].classList.add('hidden')
+            } else {
+                evt.target.childNodes[4].classList.remove('hidden')
+                evt.target.childNodes[1].classList.add('hidden')
+            }
+            console.log(cardList);
+        }
+    </script>
 </body>
 
-<script>
-    // event listeners go here
-    document.querySelectorAll('#delete-mode').addEventListener('click', editMode);
-
-
-    let deleteModeCheck = -1;
-
-    function editMode(evt) {
-        if (deleteModeCheck === -1) {
-            deleteModeCheck *= -1;
-
-        } else if (deleteModeCheck === 1) {
-
-        }
-    }
-</script>
 
 </html>
