@@ -42,7 +42,7 @@
         <br><br>
         <div class="card-body">
             <% cards.forEach(c => { %>
-            <div class="card"><%= c.front %> |||
+            <div class="card"><%= c.front %><br> 
                 <%= c.back %>
                 <% if (String(user._id) === String(c.owner._id)) { %>
                 <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
