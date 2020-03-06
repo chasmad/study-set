@@ -106,8 +106,6 @@ body {
     font-weight: 600;
     width: 350px;
     height: 225px;
-    /* max-width: 35%; */
-    /* max-height: 25%; */
     margin: 30px;
     border: 1px solid;
     box-shadow: 1px 2px #888888;
@@ -119,6 +117,23 @@ span {
     font-size: 15px;
     line-height: normal;
     font-weight: lighter;
+}
+
+textarea {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+}
+
+.delete-cards {
+    /* display: none; */
+}
+
+#change-title {
+    font-family: 'Raleway', sans-serif;
+}
+
+#delete-flash {
+    text-align: center;
 }
 
 .empty {

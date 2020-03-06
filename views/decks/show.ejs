@@ -16,7 +16,7 @@
             <div class="delete-container">
                 <% if (String(user._id) === String(deck.owner._id)) { %>
                 <form method="POST" action="/decks/<%= deck._id %>?_method=DELETE">
-                    <input class="button" type="submit" value="delete this StudySet"></form>
+                    <input class="button" type="submit" value="Delete this StudySet"></form>
                 <% } %>
             </div>
         </div>
@@ -25,8 +25,8 @@
             </h1>
             <% if (String(user._id) === String(deck.owner._id)) { %>
             <form class="new-title" method="POST" action="/decks/<%= deck._id %>?_method=PUT">
-                <input type="text" name="name" placeholder="new StudySet title">
-                <input class="button" type="submit" value="change title">
+                <input type="text" name="name" id="change-title" placeholder="New StudySet Title">
+                <input class="button" type="submit" value="Change Title">
             </form>
         </div>
         <form action="/decks/<%= deck._id %>/cards" method="POST">
@@ -37,26 +37,23 @@
                     style="width:300px; height:150px" maxlength="130"></textarea>
             </div>
             <div class="new-flashcard">
-                <input class="button" type="submit" value="Add FlashCard"></input>
+                <input class="button" type="submit" value="Add FlashCard"></input><br><br>
             </div>
         </form>
+        <div id="delete-flash">
+            <button id="delete-mode" class="button">Delete a FlashCard</button>
+        </div>
         <% } %>
-        <br><br>
         <div class="card-body">
             <% cards.forEach(c => { %>
-            <div class="card"><%= c.front %><br>
-                <span><%= c.back %></span>
-                <% if (String(user._id) === String(c.owner._id)) { %>
-                <% /* %>
-                <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
-                    <input type="text" name="front" placeholder="<%= c.front %>">
-                    <input type="text" name="back" placeholder="<%= c.back %>">
-                    <input type="submit" value="change card">
-                </form>
-                <% */ %>
-                <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
-                    <input type="submit" value="delete this card"></form>
-                <% } %>
+            <div class="card">
+                <div class="card-style"><%= c.front %><br>
+                    <span><%= c.back %></span>
+                    <% if (String(user._id) === String(c.owner._id)) { %>
+                    <form class="delete-cards" method="POST" action="/cards/<%= c._id %>?_method=DELETE">
+                        <input type="submit" value="delete this card" class="button"></form>
+                    <% } %>
+                </div>
             </div>
             <% }); %>
         </div>
@@ -65,7 +62,20 @@
 </body>
 
 <script>
-// event listeners go here
+    // event listeners go here
+    document.querySelectorAll('#delete-mode').addEventListener('click', editMode);
+
+
+    let deleteModeCheck = -1;
+
+    function editMode(evt) {
+        if (deleteModeCheck === -1) {
+            deleteModeCheck *= -1;
+
+        } else if (deleteModeCheck === 1) {
+
+        }
+    }
 </script>
 
 </html>
