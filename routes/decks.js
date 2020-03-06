@@ -4,6 +4,7 @@ const decksCtrl = require('../controllers/decks');
 // GET requests
 router.get('/', decksCtrl.index);
 router.get('/new', decksCtrl.create);
+router.get('/all', decksCtrl.all);
 router.get('/:id', decksCtrl.show);
 // POST requests
 router.post('/:id/cards', decksCtrl.newCard);

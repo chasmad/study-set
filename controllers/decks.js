@@ -7,10 +7,17 @@ module.exports = {
     show,
     newCard,
     update,
-    delete: deleteDeck
+    delete: deleteDeck,
+    all
 };
 
 // GET methods -----------
+
+function all(req, res) {
+    Deck.find({}, (err, decks) => {
+        res.render('decks/all', { decks });
+    });
+};
 
 function show(req, res) {
     Deck.findById(req.params.id)
@@ -39,7 +46,6 @@ function create(req, res) {
     req.body.owner = req.user._id;
     const deck = new Deck(req.body);
     deck.name = 'New';
-    console.log(deck);
     deck.save(err => {
         if (err) return res.redirect('/decks/new');
         res.redirect(`/decks/${deck._id}`);

@@ -21,6 +21,7 @@
         <div class="deck">
             <h1 class="deck-title"><%= deck.name %> StudySet
             </h1>
+            <% if (String(user._id) === String(deck.owner._id)) { %>
             <form class="new-title" method="POST" action="/decks/<%= deck._id %>?_method=PUT">
                 <input type="text" name="name" placeholder="new StudySet title">
                 <input class="button" type="submit" value="change title">
@@ -36,11 +37,14 @@
             <div class="new-flashcard">
                 <input class="button" type="submit" value="Add FlashCard"></input>
             </div>
-        </form><br><br>
+        </form>
+        <% } %>
+        <br><br>
         <div class="card-body">
             <% cards.forEach(c => { %>
             <div class="card"><%= c.front %> |||
                 <%= c.back %>
+                <% if (String(user._id) === String(c.owner._id)) { %>
                 <form method="POST" action="/cards/<%= c._id %>?_method=PUT">
                     <input type="text" name="front" placeholder="<%= c.front %>">
                     <input type="text" name="back" placeholder="<%= c.back %>">
@@ -48,11 +52,16 @@
                 </form>
                 <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
                     <input type="submit" value="delete this card"></form>
+                <% } %>
             </div>
             <% }); %>
         </div>
         <div class="empty"></div>
     </div>
 </body>
+
+<script>
+// event listeners go here
+</script>
 
 </html>
