@@ -45,7 +45,7 @@ function index(req, res) {
 function create(req, res) {
     req.body.owner = req.user._id;
     const deck = new Deck(req.body);
-    deck.name = 'New';
+    deck.name = 'Add a title!';
     deck.save(err => {
         if (err) return res.redirect('/decks/new');
         res.redirect(`/decks/${deck._id}`);
@@ -70,7 +70,6 @@ function newCard(req, res) {
 // PUT methods ----------
 
 function update(req, res) {
-    console.log("Updating Deck!");
     Deck.findByIdAndUpdate(req.params.id, req.body, (err, deck) => {
         console.log(deck);
         if (err) return res.redirect(`/decks/${deck._id}`);
@@ -81,7 +80,6 @@ function update(req, res) {
 // DELETE methods ----------
 function deleteDeck(req, res) {
     Deck.findByIdAndDelete(req.params.id, (err, result) => {
-        console.log(result);
         if (err) return res.redirect('/decks');
         res.redirect('/decks');
     })
