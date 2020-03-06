@@ -33,7 +33,6 @@ function show(req, res) {
 
 function index(req, res) {
     Deck.find({ owner: req.user._id }, (err, decks) => {
-        console.log('At Index');
         res.render('decks/index', {
             decks
         });
@@ -71,7 +70,6 @@ function newCard(req, res) {
 
 function update(req, res) {
     Deck.findByIdAndUpdate(req.params.id, req.body, (err, deck) => {
-        console.log(deck);
         if (err) return res.redirect(`/decks/${deck._id}`);
         res.redirect(`/decks/${req.params.id}`)
     });

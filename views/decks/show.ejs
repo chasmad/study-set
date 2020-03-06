@@ -43,7 +43,7 @@
         <% } %>
         <div class="card-body">
             <% cards.forEach((c, i) => { %>
-            <div  class="card display">
+            <div class="card display">
                 <span class="front"><%= c.front %></span><br>
                 <span class="back hidden"><%= c.back %></span>
                 <% if (String(user._id) === String(c.owner._id)) { %>
@@ -58,7 +58,6 @@
 
 
     <script>
-        // event listeners go here
         let cardList = document.querySelectorAll('.card');
 
         cardList.forEach((e) => {
@@ -66,12 +65,7 @@
         });
 
         function flip(evt) {
-            if (!evt.target.classList.contains("card")) {
-                return;
-            }
-
-            console.log(evt.target.childNodes[1])
-
+            if (!evt.target.classList.contains("card")) return;
             if (evt.target.childNodes[1].classList.contains('hidden')) {
                 evt.target.childNodes[1].classList.remove('hidden')
                 evt.target.childNodes[4].classList.add('hidden')
@@ -79,7 +73,6 @@
                 evt.target.childNodes[4].classList.remove('hidden')
                 evt.target.childNodes[1].classList.add('hidden')
             }
-            console.log(cardList);
         }
     </script>
 </body>

@@ -5,14 +5,9 @@ module.exports = {
     delete: deleteCard
 };
 
-// GET methods -----------
-
-// POST methods ----------
-
 // PUT methods ----------
 function update(req, res) {
     Card.findByIdAndUpdate(req.params.id, req.body, (err, card) => {
-        console.log('Updating Card!');
         if (err) return res.redirect(`/decks/${deck._id}`);
         res.redirect(`/decks/${card.deck._id}`)
     });
