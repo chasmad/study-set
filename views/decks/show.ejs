@@ -40,20 +40,15 @@
                 <input class="button" type="submit" value="Add FlashCard"></input><br><br>
             </div>
         </form>
-        <div id="delete-flash">
-            <button id="delete-mode" class="button">Delete a FlashCard</button>
-        </div>
         <% } %>
         <div class="card-body">
             <% cards.forEach(c => { %>
-            <div class="card">
-                <div class="card-style"><%= c.front %><br>
-                    <span><%= c.back %></span>
+            <div class="card"><%= c.front %><br>
+                <span><%= c.back %></span>
                     <% if (String(user._id) === String(c.owner._id)) { %>
-                    <form class="delete-cards" method="POST" action="/cards/<%= c._id %>?_method=DELETE">
-                        <input type="submit" value="delete this card" class="button"></form>
-                    <% } %>
-                </div>
+                    <form method="POST" action="/cards/<%= c._id %>?_method=DELETE">
+                        <input class="delete-cards" type="submit" value=" X " ></form>
+                <% } %>
             </div>
             <% }); %>
         </div>

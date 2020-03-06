@@ -99,6 +99,7 @@ body {
 }
 
 .card {
+    position: relative;
     display: inline-block;
     background-color: whitesmoke;
     text-align: center;
@@ -125,15 +126,22 @@ textarea {
 }
 
 .delete-cards {
-    /* display: none; */
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5%;
+    border: 1px solid #888888;
+    box-shadow: 1px 2px #888888;
+    /* border-radius: 0%; */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0px;
+    color: red;
 }
 
 #change-title {
     font-family: 'Raleway', sans-serif;
-}
-
-#delete-flash {
-    text-align: center;
 }
 
 .empty {
