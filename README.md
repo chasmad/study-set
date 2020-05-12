@@ -22,14 +22,14 @@
 JavaScipt, Node.js, Express.js, Mongoose, MongoDB, JSON, HTML, CSS
 
 ## Getting Started
-[Click for StudySet]: https://studyset.herokuapp.com/
-[Click for StudySet]
+[Click to launch StudySet]: https://studyset.herokuapp.com/
+[Click to launch StudySet]
 
-[Click for Trello Board]: https://trello.com/b/ADJ4i53p/studyset
-[Click for Trello Board]
+[Click to view Trello Board]: https://trello.com/b/ADJ4i53p/studyset
+[Click to view Trello Board]
 
-[Click for GitHub repo]: https://github.com/chasmad/study-set
-[Click for GitHub repo]
+[Click for repo on Github]: https://github.com/chasmad/study-set
+[Click for repo on Github]
 
 ## Next Steps
 - Show single card and single random card (TestMe)
